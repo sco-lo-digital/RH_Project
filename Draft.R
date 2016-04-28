@@ -3,6 +3,7 @@ library(pacman)
 p_load(leaflet, ggplot2, Hmisc, arules, zipcode, dplyr, caret)
 data("zipcode")
 #Read in data
+<<<<<<< HEAD
 df <- read.csv("~/Data_Science/RH_Project/query_for_cust_tn.csv", stringsAsFactors=FALSE)
 set.seed(3456)
 trainIndex <- createDataPartition(df$TN_Flag, p = .8,
@@ -17,6 +18,11 @@ prop.table(table(dfTrain$TN_Flag))
 
 #Create teen only data set for exploration
 teens <- dfTrain[dfTrain$TN_Flag==1,]
+=======
+df <- read.csv("query_for_cust_tn.csv", stringsAsFactors=FALSE)
+#Create teen only data set
+teens <- df[df$TN_Flag==1,]
+>>>>>>> fffc45f77d8f5fb4e77d0cf296db205e6ce3dea5
 #Clean zipcode
 teens$Zip <- as.character(teens$Zip)
 #Join lookup table of zipcodes to our data set
