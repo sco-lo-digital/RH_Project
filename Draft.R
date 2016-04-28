@@ -3,7 +3,7 @@ library(pacman)
 p_load(leaflet, ggplot2, Hmisc, arules, zipcode, dplyr)
 data("zipcode")
 #Read in data
-df <- read.csv("~/Data_Science/RH_Project/query_for_cust_tn.csv", stringsAsFactors=FALSE)
+df <- read.csv("query_for_cust_tn.csv", stringsAsFactors=FALSE)
 #Create teen only data set
 teens <- df[df$TN_Flag==1,]
 #Clean zipcode
