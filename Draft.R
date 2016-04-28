@@ -10,6 +10,7 @@ trainIndex <- createDataPartition(df$TN_Flag, p = .8,
                                   times = 1)
 dfTrain <- df[trainIndex,] #Use this for exploration and modeling
 dfTest <- df[-trainIndex,] #Use this for validation
+#write.csv(dfTrain, file = "RH_Train_TN_Data")
 
 prop.table(table(dfTest$TN_Flag)) # check for proportionality
 prop.table(table(dfTrain$TN_Flag))
