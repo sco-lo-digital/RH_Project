@@ -1,11 +1,21 @@
 #install.packages("pacman")
 library(pacman)
-p_load(leaflet, ggplot2, Hmisc, arules, zipcode, dplyr)
+p_load(leaflet, ggplot2, Hmisc, arules, zipcode, dplyr, caret)
 data("zipcode")
 #Read in data
 df <- read.csv("~/Data_Science/RH_Project/query_for_cust_tn.csv", stringsAsFactors=FALSE)
-#Create teen only data set
-teens <- df[df$TN_Flag==1,]
+set.seed(3456)
+trainIndex <- createDataPartition(df$TN_Flag, p = .8,
+                                  list = FALSE,
+                                  times = 1)
+dfTrain <- df[trainIndex,] #Use this for exploration and modeling
+dfTest <- df[-trainIndex,] #Use this for validation
+
+prop.table(table(dfTest$TN_Flag)) # check for proportionality
+prop.table(table(dfTrain$TN_Flag))
+
+#Create teen only data set for exploration
+teens <- dfTrain[dfTrain$TN_Flag==1,]
 #Clean zipcode
 teens$Zip <- as.character(teens$Zip)
 #Join lookup table of zipcodes to our data set
