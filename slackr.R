@@ -15,9 +15,18 @@ library(slackr)
 
 
 #API
-#xoxp-36279594467-36329999717-38732390178-b098955541
-slackrSetup(channel="#files", incoming_webhook_url="https://hooks.slack.com/services/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", api_token ="xoxp-36279594467-36329999717-38732390178-b098955541")
+slackrSetup(channel="#files", incoming_webhook_url="https://hooks.slack.com/services/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", api_token ="xoxp-36279594467-36329999717-38751837653-411d9de4ca")
 us <- slackr_users()
+slackr(us$name)
 chan <- slackr_channels()
-#dev.slackr("#files")
-#slackr_upload("RH_Train_TN_Data")
+dev.slackr("#files")
+slackr_upload("RH_down_train.csv", channel = "#files", api_token ="xoxp-36279594467-36329999717-38751837653-411d9de4ca")
+#httr::with_verbose(slackr_upload("zips.csv"))
+
+text_slackr("              TN_Purch
+ TN_Catalog  NotTN     TN
+       FALSE 540672   7570
+       TRUE  137682   7524", channel = "#files", api_token ="xoxp-36279594467-36329999717-38751837653-411d9de4ca")
+
+
+write.csv(zipcode, file = "zips")
