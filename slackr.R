@@ -16,6 +16,8 @@ library(slackr)
 
 #API
 #xoxp-36279594467-36329999717-38732390178-b098955541
-slackrSetup(channel="#files", incoming_webhook_url="https://hooks.slack.com/services/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", api_token ="xoxp-36279594467-36329999717-38732390178-b098955541" )
+slackrSetup(channel="#files", incoming_webhook_url="https://hooks.slack.com/services/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", api_token ="xoxp-36279594467-36329999717-38732390178-b098955541")
+us <- slackr_users()
+chan <- slackr_channels()
 #dev.slackr("#files")
-slackr_upload("RH_Train_TN_Data")
+#slackr_upload("RH_Train_TN_Data")
